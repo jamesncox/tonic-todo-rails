@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:index, :crate, :destroy]
+      resources :users, only: [:index, :create, :destroy]
       resources :todos
 
       # fetch to custom Todo route for specific user
