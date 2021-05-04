@@ -1,23 +1,26 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :users, only [:index, :crate, :destroy]
-  resources :todos
+  namespace :api do
+    namespace :v1 do
+      resources :users, only [:index, :crate, :destroy]
+      resources :todos
 
-    # fetch to custom Todo route for specific user
-    get '/user_todos/:id' => 'todos#user_todos'
+      # fetch to custom Todo route for specific user
+      get '/user_todos/:id' => 'todos#user_todos'
 
-    # sessions CSRF-TOKEN route
-    get '/auth_check' => 'sessions#auth_check'
+      # sessions CSRF-TOKEN route
+      get '/auth_check' => 'sessions#auth_check'
 
-    # /signup is my post fetch request route for signing up new user to users#create action
-    post '/signup' => 'users#create'
+      # /signup is my post fetch request route for signing up new user to users#create action
+      post '/signup' => 'users#create'
 
-    # /login is my post fetch requeset route for logging in existing user to sessions#create action
-    post '/login' => 'sessions#create'
+      # /login is my post fetch requeset route for logging in existing user to sessions#create action
+      post '/login' => 'sessions#create'
 
-    # /current_user endpoint for a fetch on refresh in App.js, to persist User on refresh
-    get '/current_user' => 'users#current_user'
+      # /current_user endpoint for a fetch on refresh in App.js, to persist User on refresh
+      get '/current_user' => 'users#current_user'
 
-    # /logout is my post fetch request route for logging out of existing user's session, sessions#destroy
-    delete "/logout" => "sessions#destroy"
+      # /logout is my post fetch request route for logging out of existing user's session, sessions#destroy
+      delete "/logout" => "sessions#destroy"
+    end
+  end
 end
