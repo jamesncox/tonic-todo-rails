@@ -17,7 +17,7 @@ class Api::V1::TodosController < ApplicationController
     end
 
     def create 
-        @todo = Store.new(todo_params)
+        @todo = Todo.new(todo_params)
         if @todo.save
             render json: @todo, status: 200
         else
