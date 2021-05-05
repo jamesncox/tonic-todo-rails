@@ -8,7 +8,7 @@ class Api::V1::TodosController < ApplicationController
     def user_todos
         @user = User.find_by(id: params[:id])
         @todos = @user.todos
-        renderf json: @todos, except: [:created_at, :updated_at], status: 200
+        render json: @todos, except: [:created_at, :updated_at], status: 200
     end
 
     def show
@@ -43,6 +43,6 @@ class Api::V1::TodosController < ApplicationController
 
     private
         def todo_params
-            params.require(:todo).permit(:title, :done, :user_id)
+            params.require(:todo).permit(:text, :done, :user_id)
         end 
 end
