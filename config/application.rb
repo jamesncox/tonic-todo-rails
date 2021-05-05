@@ -38,11 +38,13 @@ module TonicTodoRails
     config.api_only = true
 
     config.middleware.use ActionDispatch::Cookies
-    config.middleware.use Rails.application.config.session_store :cookie_store, {
-      :key => '_application_session',
-      :domain => :all,
-      :same_site => :none,
-      :secure => :true
-    }
+    config.middleware.use ActionDispatch::Session::CookieStore
+
+    # config.middleware.use Rails.application.config.session_store :cookie_store, {
+    #   :key => '_application_session',
+    #   :domain => :all,
+    #   :same_site => :none,
+    #   :secure => :true
+    # }
   end
 end
