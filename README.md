@@ -1,25 +1,25 @@
-# README
+# The Matrix Todo - Rails
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A simple todo app for The Matrix fans. Keep track of your tasks while you try to defeat the machines!
 
-Things you may want to cover:
+https://the-matrix-todo.herokuapp.com/api/v1/users
 
-* Ruby version
+## Features
 
-* System dependencies
+- Custom routes for user auth and fetches
+- PostgreSQL database
+- Sessions/cookies for user persistence
 
-* Configuration
+## Tech Stack
 
-* Database creation
+**Client:** React, Redux, TailwindCSS
 
-* Database initialization
+**Server:** Rails API
 
-* How to run the test suite
+## Frontend
 
-* Services (job queues, cache servers, search engines, etc.)
+https://github.com/jamesncox/tonic-todo-react
 
-* Deployment instructions
+## License
 
-* ...
-# tonic-todo-rails
+[MIT](https://choosealicense.com/licenses/mit/)
